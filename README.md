@@ -3,9 +3,16 @@
 Backer facilitates a simplistic form of the Repository Pattern with simple Ruby
 applications.
 
+In a nutshell, repositories, when used in this manner, allow you to abstract
+your storage mechanism away from your application logic and implementaiton
+detail. Adapters adhere to a set API and should be interchangeable.
+
 As an ongoing effort to understand more about how to make my applications more
 adaptable and deferring hard decisions until later, I decided to explore the
 Repository Pattern with relation to my Event Sourcing and CQRS research.
+
+When using Backer, you may register as many non-conflicting repositories as you
+wish.
 
 
 ## Installation
@@ -28,10 +35,10 @@ And then execute:
 3. Then configure it:
 ```ruby
 configure :development do
-	Backer::Repo.register(:user, MemoryRepository::UserRepository.new)
+	Backer::Repo.register(:user, UserMemoryRepository.new)
 end
 ```
- ***Note:*** `:user` and `UserRepository` do not come with the package
+ ***Note:*** `:user` and `UserMemoryRepository` do not come with the package
 
 ## Development
 

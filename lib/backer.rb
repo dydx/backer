@@ -1,7 +1,7 @@
 require "backer/version"
 
 module Backer
-  class Repository
+  class Repo
     def self.register(type, repo)
       repositories[type] = repo
     end
