@@ -1,28 +1,37 @@
 # Backer
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/backer`. To experiment with that code, run `bin/console` for an interactive prompt.
+Backer facilitates a simplistic form of the Repository Pattern with simple Ruby
+applications.
 
-TODO: Delete this and the text above, and describe your gem
+As an ongoing effort to understand more about how to make my applications more
+adaptable and deferring hard decisions until later, I decided to explore the
+Repository Pattern with relation to my Event Sourcing and CQRS research.
+
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'backer'
+gem 'backer', :github => 'dydx/backer'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install backer
-
 ## Usage
 
-TODO: Write usage instructions here
+### Sinatra
+1. `require 'backer'` in your main application file
+2. `require 'backer-<adapter name>'` to specify which adapter you wish to use
+3. Then configure it:
+```ruby
+configure :development do
+	Backer::Repo.register(:user, MemoryRepository::UserRepository.new)
+end
+```
+ ***Note:*** `:user` and `UserRepository` do not come with the package
 
 ## Development
 
@@ -32,7 +41,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/backer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dydx/backer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
