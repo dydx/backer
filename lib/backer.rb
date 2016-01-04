@@ -11,7 +11,7 @@ module Backer
     end
 
     def self.for(type)
-      repsositories[type]
+      repositories[type]
     end
   end
 end
